@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes website responsive on mobile and desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <!-- External CSS file for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== Header Section ===== -->
+  <!-- Top banner with the app title -->
+  <header>
+    <h1 style="color: #ff0000;">📝 Task Manager</h1>
+  </header>
+
+  <!-- ===== Dashboard Section ===== -->
+  <!-- Shows task statistics and circular progress -->
+  <section class="dashboard">
+    <!-- Stats cards for task counts -->
+    <div class="cards">
+      <div class="card"><h2>  <b>📋Total Tasks</b> </h2> <span id="totalTasks">0</span></div>
+      <div class="card low"> <h3> <b>🟢Low</b> </h3> <span id="lowCount">0</span></div>
+      <div class="card medium"> <h3> <b> 🟡Medium </b> </h3> <span id="mediumCount">0</span></div>
+      <div class="card high"> <h3> <b>🔴High</b> </h3> <span id="highCount">0</span></div>
+      <div class="card complete"> <h3> <b>✅Completed</b> </h3> <span id="completedCount">0</span></div>
+      <div class="card progress"> <h3> <b>⏳In Progress</b> </h3> <span id="inProgressCount">0</span></div>
+    </div>
+
+    <!-- Right-side progress circle and add task button -->
+    <div class="chart-box">
+      <h3>📊 Task Completion Status</h3>
+      <!-- Circular progress indicator -->
+      <div class="progress-box">
+        <span id="progressPercent">0%</span>
+      </div>
+
+    <!-- Button to open task creation modal -->
+    <button id="addTaskBtn">+ Add Task</button>
+    </div>
+  </section>
+
+  <!-- ===== Controls Section ===== -->
+  <!-- Contains search bar and sorting dropdown -->
+  <section class="controls">
+    <!-- Search bar for filtering tasks -->
+    <input type="text" id="searchBar" placeholder="Search tasks...">
+    <!-- Dropdown for sorting tasks -->
+    <select id="sortOptions">
+      <option value="">Sort by...</option>
+      <option value="priority">Priority</option>
+      <option value="due-date">Due Date</option>
+      <option value="status">Status</option>
+    </select>
+  </section>
+
+  <!-- ===== Task Table Section ===== -->
+  <!-- Table displaying all added tasks -->
+  <section class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>📝Task</th>
+          <th>🎯Priority</th>
+          <th>🗓️Start Date</th>
+          <th>⏰Due Date</th>
+          <th>🗒️Notes</th>
+          <th>✅Complete</th>
+          <th>✏️Edit</th>
+          <th>🗑️Delete</th>
+        </tr>
+      </thead>
+      <!-- Body where task rows will be dynamically inserted via JS -->
+      <tbody id="taskTableBody"></tbody>
+    </table>
+  </section>
+
+  <!-- ===== Modal Section ===== -->
+  <!-- Popup form for adding/editing tasks -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <!-- Close button for modal -->
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Add New Task</h2>
+      <!-- Task input form -->
+      <form id="taskForm">
+        <!-- Task title input -->
+        <input type="text" id="taskName" placeholder="Task name" required>
+        <!-- Task priority dropdown -->
+        <select id="taskPriority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <!-- Task start date -->
+        <input type="date" id="startDate" required>
+        <!-- Task due date -->
+        <input type="date" id="dueDate" required>
+        <!-- Notes field -->
+        <textarea id="taskNotes" placeholder="Notes"></textarea>
+        <!-- Submit button -->
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== JavaScript Link ===== -->
+  <!-- Connects all functionality from script.js -->
+  <script src="script.js"></script>
+
+  <!-- logout -->
+<p style="text-align: right;">
+  <button id="logoutBtn" style="margin-right: 25px;">Logout</button>
+</p>
+
+<script>
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    window.location.href = "login.html"; // redirect to login page
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* ===== Reset Styles ===== */
+/* Remove default margin, padding, and set box-sizing for consistent layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif; /* Clean modern font */
+}
+
+body {
+  background: #f8fafc; /* Light gray background */
+  color: #1e293b; /* Dark text for readability */
+}
+
+/* ===== Header ===== */
+header {
+  background: #12c132; /* Green background */
+  color: white; /* White text */
+  padding: 1rem; /* Spacing around text */
+  text-align: center; /* Center the heading */
+  font-size: 1.5rem; /* Slightly large font */
+  font-weight: bold; /* Bold for importance */
+}
+
+/* ===== Dashboard Layout ===== */
+.dashboard {
+  display: flex; /* Horizontal layout */
+  justify-content: space-between; /* Space between cards and chart */
+  padding: 1.5rem; /* Spacing */
+  gap: 2rem; /* Gap between cards and chart */
+}
+
+/* ===== Task Summary Cards ===== */
+.cards {
+  display: grid; /* Arrange cards in grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1rem; /* Space between cards */
+  flex: 2; /* Take more width than chart */
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  text-align: center;
+  font-weight: bold;
+}
+
+.card span {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 0.5rem; /* Gap below title */
+}
+
+/* ===== Priority Colors (left border indicates priority) ===== */
+.card.low { border-left: 5px solid #22c55e; } /* Green for Low */
+.card.medium { border-left: 5px solid #facc15; } /* Yellow for Medium */
+.card.high { border-left: 5px solid #ef4444; } /* Red for High */
+.card.complete { border-left: 5px solid #3b82f6; } /* Blue for Completed */
+.card.progress { border-left: 5px solid #6366f1; } /* Indigo for Progress */
+
+/* ===== Chart Box ===== */
+.chart-box {
+  flex: 1; /* Takes smaller space */
+  display: flex;
+  flex-direction: column; /* Vertical layout */
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Circular progress chart */
+.progress-box {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* Circle shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: conic-gradient(#4caf50 0deg, #e2e8f0 0deg); 
+  /* Green progress with gray background */
+  color: #1e293b;
+}
+
+/* Add Task Button */
+#addTaskBtn {
+  padding: 0.7rem 1.5rem;
+  background: #1e40af; /* Dark blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#addTaskBtn:hover {
+  background: #1d4ed8; /* Brighter blue on hover */
+}
+
+/* ===== Controls (Search + Sort) ===== */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.controls input, .controls select {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  flex: 1; /* Expand evenly */
+}
+
+/* ===== Task Table ===== */
+.table-container {
+  padding: 0 1.5rem 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Remove spacing */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Table Header */
+thead {
+  background: #1e3a8a; /* Navy blue */
+  color: white;
+}
+
+/* Table Cells */
+th, td {
+  padding: 0.8rem;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0; /* Light divider */
+}
+
+
+
+/* ===== Modal (Add Task Form) ===== */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* Dark overlay */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%; /* Responsive */
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+/* Form Inputs */
+.modal-content input,
+.modal-content select,
+.modal-content textarea,
+.modal-content button {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+/* Submit Button */
+.modal-content button {
+  background: #1e40af;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Close Button (X) */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+body {background-color: #808080;}
+
+.logout-container {
+  text-align: right; /* aligns button to the top-right corner */
+  padding: 20px;
+}
+
+#logoutBtn {
+  background-color: #f44336; /* red button for “exit” */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#logoutBtn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
